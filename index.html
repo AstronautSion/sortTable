@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SortTable</title>
+    <link rel="stylesheet" href="https://astronautsion.github.io/myreset/resources/css/reset.css">
+
+    <style>
+        table{
+            width:100%;
+        }
+        table thead th:hover{
+            background-color:#ccc;
+            cursor:pointer;
+        }
+        table thead th,
+        table tbody td{
+            border:1px solid #eee;
+            padding:1em;
+            font-size:.75rem;
+            color:#333;
+        }
+        table thead tr{
+            background-color:#ddd;
+        }
+    </style>
+   
+</head>
+<body>
+    <table id="sortTable">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Product Number</th>
+                <th>Title</th>
+                <th>IP</th>
+            </tr>
+        </thead>
+        <tbody id="sortTableTbody">
+        </tbody>  
+    </table>
+</body>
+<script>
+        let data = [
+            {
+                num: 1,
+                title: '안녕하세요1',
+                ip: '1.1.1.1'
+            },{
+                num: 2,
+                title: '굿모닝',
+                ip: '121.31.14.11'
+            },{
+                num: 3,
+                title: '지드레곤',
+                ip: '123.12.123.122'
+            },{
+                num: 4,
+                title: '와이지병원',
+                ip: '22.132.122.13'
+            },{
+                num: 5,
+                title: '승리',
+                ip: '323.11.123.14'
+            },{
+                num: 52,
+                title: 'IT',
+                ip: '33.23.11.22'
+            },{
+                num: 125,
+                title: '64브라더',
+                ip: '76.11.34.1'
+            },{
+                num: 2302,
+                title: '히스토리',
+                ip: '99.23.11.231'
+            }
+            
+        ]
+        let tbody = document.getElementById('sortTableTbody');
+        
+        let createTable = function(data){
+            let html = '';
+            for(item in data){
+                html += `<tr>
+                        <td>${item}</td>
+                        <td>${data[item].num}</td>
+                        <td>${data[item].title}</td>
+                        <td>${data[item].ip}</td>
+                    </tr>`;
+            }
+            return html;
+        };
+
+        let tableHtml = createTable(data);
+        tbody.insertAdjacentHTML( 'afterbegin', tableHtml );
+</script>
+<script>
+    let table = document.getElementById('sortTable');
+    // let sortTable = new SortTables({
+    //     target : table,
+    //     options: [
+    //         number,
+    //         number,
+
+    //     ]
+    // })
+</script>
+</html> 
